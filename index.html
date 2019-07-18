@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 	<header>
 		
@@ -21,22 +21,35 @@
                     h1        {
                                 font-family: ar berkley;
                               }
-                   .withlove{
-		  width:100%; 
-	height:500px;
-	padding-top:10%;
-         background-color:rgba(0,0,0,1);
-  background-repeat:no-repeat;
-	background-size:100% 1100px;
-  background-size:cover;
-	z-index:-5;
- } 
-		   
+                    
    html { background-color:rgba(0,0,0,1);
 	height:1000px;
 		width:100%;
 	overflow:hidden;
-		   }
+
+	   	   }
+		   
+		   .single{
+	border-style:outset;
+	border-color:#E5E4E2;
+	height:210px;
+	 margin-top:22%;
+	margin-right:25%;
+	width:400px;
+        background-image:url('https://i.pinimg.com/originals/d2/95/a0/d295a0fd6575b7f3879f71b0c29263c2.png');
+        background-size:400px 210px;
+	     }
+		   
+		   .withlove{
+		  width:100%; 
+	height:500px;
+	padding-top:10%;
+        background-color:rgba(0,0,0,0);
+  background-repeat:no-repeat;
+	background-size:100% 1100px;
+  background-size:cover;
+	z-index:-5;
+ }
 		   		  #left-sidebar{
   float:left;
   width:430px;
@@ -51,32 +64,172 @@
 	 height:600px;
 	background-color:#white;
 }
+@import "compass/css3";
 
-		   .single{
-	border-style:outset;
-	border-color:#E5E4E2;
-	height:210px;
-	 margin-top:22%;
-	margin-right:25%;
-	width:400px;
-        background-image:url('https://i.pinimg.com/originals/d2/95/a0/d295a0fd6575b7f3879f71b0c29263c2.png');
-        background-size:400px 210px;
-	     }
+
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+$default-prefixes: webkit moz ms o;
+
+
+
+div#main {  
+  font-family: "Oswald";
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  animation: rotator2 30s infinite linear;  
+  position:absolute;
+  left:50%;
+  top:50%;
+  
+  #container  {
+    &:hover {  animation-play-state: paused; }
+    animation: rotator 30s infinite linear;
+    transform-style: preserve-3d;
+    transform-origin: 0 0;
+    transform: rotateX(12deg);
+    transition: animation;
+    background:rgba(0,0,0,0.5);
+    width: 0;
+    height: 0;
+    position:absolute;
+    left:50%;
+    top:50%;
+    
+    div {
+      cursor:pointer;
+      position:absolute;
+      border-radius: 50%;
+      text-align:center;
+      font-size:30px;
+      display:table-cell;
+      vertical-align:middle;
+      line-height:64px;
+      background: #000;
+      width: 64px; 
+      height: 64px;
+      opacity:0.88;
+      left:-32px;
+      color:white;
+      text-shadow: 
+        0px 0px 5px #000,
+        0px 0px 3px #000,
+        0px 0px 2px #000,
+        0px 0px 1px #000;
+      background-color:#eed;
+      background-size: 100% 100%;
+      background-position: center center;
+      border:3px solid rgba(0,0,0,1);
+      overflow:show;
+      transition:
+        background-size 1s ease-out,
+        width 0.2s ease-in-out,
+        height 0.2s ease-in-out,
+        line-height 0.2s ease-in-out,
+        font-size 0.2s ease-in-out 0s,
+        color 0.2s ease-in-out,
+        top 0.2s ease-in-out,
+        left 0.2s ease-in-out,
+        text-shadow 0.2s ease-in-out,
+        border 0.2s ease-in-out,
+        border-radius 0.2s ease-in-out;
+      
+      &:hover {
+        color:transparent;
+        text-shadow: 0 0 20px rgba(0,0,0,0);
+        opacity:1;
+        background-size: 150% 150%;
+        border:3px solid white;  
+        position: absolute;
+        top:-80px;
+        font-size:0px;
+        left:-100px;
+        line-height:100px;
+        width: 200px;
+        height: 200px;
+        border-radius: 0;
+        z-index:222 !important;
+        transition: text-shadow-color 0.2s ease-in 0s;
+      }
+    }
+  }
+}
+
+@mixin keyframe ($animation_name) {
+  @-webkit-keyframes $animation_name { @content; }
+  @-moz-keyframes $animation_name { @content; }
+  @-o-keyframes $animation_name { @content }
+  @keyframes $animation_name { @content; }
+}
+
+@include keyframe(rotator) {
+  0% { transform:rotateY(0deg);  }
+  50% { transform:rotateY(180deg); }
+  100% { transform:rotateY(359deg); }
+}
+
+@include keyframe("rotator2") {
+  0% { transform: rotateX(-2deg)  rotateZ(-2deg);  }
+  50% { transform:rotateX(2deg)  rotateZ(2deg); }
+  100% { transform:rotateX(-2deg) rotateZ(-2deg); }  
+}
+
+.striped {
+  padding: 2.25em 1.6875em;
+  background-image: -webkit-repeating-linear-gradient(135deg, rgba(0,0,0,.5), rgba(0,0,0,.5) 1px, transparent 2px, transparent 2px, rgba(0,0,0,.5) 3px);
+  background-image: -moz-repeating-linear-gradient(135deg, rgba(0,0,0,.5), rgba(0,0,0,.5) 1px, transparent 2px, transparent 2px, rgba(0,0,0,.5) 3px);
+  background-image: -o-repeating-linear-gradient(135deg, rgba(0,0,0,.5), rgba(0,0,0,.5) 1px, transparent 2px, transparent 2px, rgba(0,0,0,.5) 3px);
+  background-image: repeating-linear-gradient(135deg, rgba(0,0,0,.5), rgba(0,0,0,.5) 1px, transparent 2px, transparent 2px, rgba(0,0,0,.5) 3px);
+  background-size: 4px 4px;
+}
+
+
+
+footer {
+  font-weight: normal;
+  font-size:13px;
+  font-family: 'Helvetica';
+  color: #fff;
+  background-color:rgba(0,0,0,0.9);
+  float:left;
+  padding:5px 10px;
+  position:absolute;
+  top:20px; 
+  right:20px;  
+  a { color :#fff; text-decoration:none;} 
+}
+
 </style>
 	</header>       
  
    <head>
-	 
+	 <button>living life and kicking butt</button>
          </head>
          
 <body>    
-	<div class="withlove">
-	 <div id="left-sidebar">
-	</div>
-	
-	 <div id="right-sidebar">
-	<div class="single"></div>
-         </div>
+	<div id="main">
+  <div id="container"></div>
+</div>
+		
+		<div class="clothed"> 
+		    	  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="9ZA4JUAVWWDY6">
+<table>
+<td>You can be billed up to $8.00</select> USD</td></tr>
+</table>
+<table>
+</table>
+<table><tr><td align=center><i>Sign up for</i></td></tr><tr><td><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_auto_billing_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></td></tr></table>
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+
+
+
+
+			    
+			    
+	      </div>
  </div>
           </body>
 <footer> 
